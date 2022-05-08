@@ -46,7 +46,7 @@ from
 on c.product_id = m.product_id
 where c.rnk1=1;
 
-6. Which item was the most popular for each customer?
+5. Which item was the most popular for each customer?
 
 select c.customer, m.product_name from 
 (
@@ -60,7 +60,7 @@ select c.customer, m.product_name from
   where rnk1=1
   order by c.customer;
   
-8. Which item was purchased first by the customer after they became a member?
+6. Which item was purchased first by the customer after they became a member?
 select customer_id, order_date, product_name from(  
 select s.customer_id,
 s.order_date,
@@ -75,7 +75,7 @@ on s.product_id= m.product_id
 where s.order_date >= mem.join_date ) as c
 where rnk1=1;
 
-10. Which item was purchased just before the customer became a member?
+7. Which item was purchased just before the customer became a member?
 select customer_id, order_date, product_name from(
 select s.customer_id,
 s.order_date,
@@ -89,7 +89,7 @@ join dannys_diner.menu as m
 on s.product_id= m.product_id 
 where s.order_date < mem.join_date) as c where rnk1=1;
 
-12. What is the total items and amount spent for each member before they became a member?
+8. What is the total items and amount spent for each member before they became a member?
 select s.customer_id as Customer,
 count(distinct s.product_id) as TotalItems, sum(m.price) as AmountSpent
 from dannys_diner.sales as s
@@ -100,7 +100,7 @@ on s.product_id = m.product_id
 where s.order_date < mem.join_date
 group by s.customer_id;
 
-14.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+9.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 select customer_id, sum(points)
 from(
   select s.customer_id,m.product_name,
@@ -116,4 +116,22 @@ from(
   group by customer_id
   order by customer_id;
   
-16. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
+10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
+select customer_id, sum(points) as total_points
+from
+(
+select s.customer_id, m.product_name, s.order_date, m.join_date,
+case
+	when m.product_name = 'sushi' and s.order_date < m.join_date then sum(m.price*20)
+	when m.product_name = 'ramen' and s.order_date < m.join_date then sum(m.price*10)
+	when m.product_name = 'curry' and s.order_date < m.join_date then sum(m.price*10)
+	when s.order_date >= m.join_date and s.order_date < '2021-01-31' then sum(m.price*20)
+end as points
+from dannys_diner.sales as s
+join dannys_diner.menu as m
+on s.product_id = m.product_id
+join dannys_diner.members as m
+on s.customer_id = m.customer_id
+where s.order_date < '2021-01-31'
+group by s.customer_id,m.product_name,s.order_date,m.join_date) as c
+GROUP BY customer_id;
