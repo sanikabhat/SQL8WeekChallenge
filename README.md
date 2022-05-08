@@ -4,6 +4,8 @@
 
 ## **Danny Ma's Week 1 (Danny's Diner) Challenge**
 
+![image](https://user-images.githubusercontent.com/26146479/167309111-50470b0d-b43a-4b53-aece-096608950e8b.png)
+
 1. What is the total amount each customer spent at the restaurant?
 2. How many days has each customer visited the restaurant?
 3. What was the first item from the menu purchased by each customer?
