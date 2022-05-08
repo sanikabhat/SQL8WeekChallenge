@@ -117,21 +117,26 @@ from(
   order by customer_id;
   
 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
-select customer_id, sum(points) as total_points
-from
-(
-select s.customer_id, m.product_name, s.order_date, m.join_date,
-case
-	when m.product_name = 'sushi' and s.order_date < m.join_date then sum(m.price*20)
-	when m.product_name = 'ramen' and s.order_date < m.join_date then sum(m.price*10)
-	when m.product_name = 'curry' and s.order_date < m.join_date then sum(m.price*10)
-	when s.order_date >= m.join_date and s.order_date < '2021-01-31' then sum(m.price*20)
-end as points
-from dannys_diner.sales as s
-join dannys_diner.menu as m
-on s.product_id = m.product_id
-join dannys_diner.members as m
-on s.customer_id = m.customer_id
-where s.order_date < '2021-01-31'
-group by s.customer_id,m.product_name,s.order_date,m.join_date) as c
-GROUP BY customer_id;
+select d.customer_id, sum(d.points) from
+  (select s.customer_id, s.order_date, mem.join_date, c.product_id, 
+  case when s.order_date >= mem.join_date then c.bonus_points
+  when s.order_date <=mem.join_date and c.product_id = 1 then c.bonus_points
+  else c.price
+  end as points
+  from
+  (
+    select m.product_id, 
+  m.product_name, 
+  m.price, 
+  case 
+  when product_id=1 then price*2
+  when product_id=2 then price*2
+  when product_id=3 then price*2
+  end as bonus_points
+  from dannys_diner.menu as m
+) as c join dannys_diner.sales as s
+on c.product_id = s.product_id
+join dannys_diner.members mem
+on mem.customer_id = s.customer_id) as d
+where d.order_date < '2021-01-31'
+group by d.customer_id;
