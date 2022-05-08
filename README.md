@@ -117,7 +117,7 @@ from(
   order by customer_id;
   
 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
-select d.customer_id, sum(d.points) from
+select d.customer_id, sum(d.points)*10 from
   (select s.customer_id, s.order_date, mem.join_date, c.product_id, 
   case when s.order_date >= mem.join_date then c.bonus_points
   when s.order_date <=mem.join_date and c.product_id = 1 then c.bonus_points
