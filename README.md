@@ -76,6 +76,18 @@ where s.order_date >= mem.join_date ) as c
 where rnk1=1;
 
 10. Which item was purchased just before the customer became a member?
+select customer_id, order_date, product_name from(
+select s.customer_id,
+s.order_date,
+m.product_name,
+rank() over(partition by s.customer_id order by s.order_date desc) as rnk1
+from dannys_diner.sales as s
+join
+dannys_diner.members as mem
+on s.customer_id = mem.customer_id
+join dannys_diner.menu as m
+on s.product_id= m.product_id 
+where s.order_date < mem.join_date) as c where rnk1=1;
 
 12. What is the total items and amount spent for each member before they became a member?
 13.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
