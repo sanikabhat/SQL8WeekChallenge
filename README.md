@@ -47,8 +47,21 @@ on c.product_id = m.product_id
 where c.rnk1=1;
 
 6. Which item was the most popular for each customer?
-7. Which item was purchased first by the customer after they became a member?
-8. Which item was purchased just before the customer became a member?
-9. What is the total items and amount spent for each member before they became a member?
-10.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
-11. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
+
+select c.customer, m.product_name from 
+(
+  select s.customer_id as customer, s.product_id as product,
+  count(s.product_id),
+  rank() over(partition by s.customer_id order by count(s.product_id) desc) as rnk1 
+  from dannys_diner.sales as s 
+  group by s.customer_id,s.product_id
+  ) as c join dannys_diner.menu as m
+  on c.product = m.product_id
+  where rnk1=1
+  order by c.customer;
+  
+8. Which item was purchased first by the customer after they became a member?
+9. Which item was purchased just before the customer became a member?
+10. What is the total items and amount spent for each member before they became a member?
+11.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
+12. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
