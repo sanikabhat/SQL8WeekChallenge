@@ -1,6 +1,6 @@
 # SQL8WeekChallenge
 
-**## Danny Ma's Week 1 (Danny's Diner) Challenge**
+## **Danny Ma's Week 1 (Danny's Diner) Challenge**
 
 1. What is the total amount each customer spent at the restaurant?
 ```
