@@ -35,7 +35,7 @@ Bonus Challenge
 
 ER Diagram below
 
-![image](https://user-images.githubusercontent.com/26146479/167879533-fe68dd8e-56a0-49f4-a750-c4072ff6722c.png)
+![image](https://user-images.githubusercontent.com/26146479/167879862-a5234d3d-a28e-4ef8-a2bb-7220d87e8298.png)
 
 A. Pizza Metrics
     1. How many pizzas were ordered?
