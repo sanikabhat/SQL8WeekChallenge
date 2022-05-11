@@ -1,20 +1,7 @@
-#Pizza Runner
-
-Areas of Focus:
-Danny decided to Uberize his Pizza business. So, he launches "Pizza Runner" (runners recruited to deliver pizza from his home) and is developping an app
-
-Questions to be answered are categorised into different topic:
-
-Pizza Metrics
-Runner and Customer Experience
-Ingredient Optimisation
-Pricing and Ratings
-Bonus Challenge
-
-ER Diagram below
 
 A. Pizza Metrics
     1. How many pizzas were ordered?
+    
     2. How many unique customer orders were made?
     3. How many successful orders were delivered by each runner?
     4. How many of each type of pizza was delivered?
