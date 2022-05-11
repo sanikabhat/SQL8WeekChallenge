@@ -27,17 +27,17 @@ Danny decided to Uberize his Pizza business. So, he launches "Pizza Runner" (run
 
 Questions to be answered are categorised into different topic:
 
-Pizza Metrics
-Runner and Customer Experience
-Ingredient Optimisation
-Pricing and Ratings
-Bonus Challenge
+1. Pizza Metrics
+2. Runner and Customer Experience
+3. Ingredient Optimisation
+4. Pricing and Ratings
+5. Bonus Challenge
 
 ER Diagram below
 
 ![image](https://user-images.githubusercontent.com/26146479/167879862-a5234d3d-a28e-4ef8-a2bb-7220d87e8298.png)
 
-A. Pizza Metrics
+1. Pizza Metrics
     1. How many pizzas were ordered?
     2. How many unique customer orders were made?
     3. How many successful orders were delivered by each runner?
@@ -49,7 +49,7 @@ A. Pizza Metrics
     9. What was the total volume of pizzas ordered for each hour of the day?
     10. What was the volume of orders for each day of the week?
 
-B. Runner and Customer Experience
+2. Runner and Customer Experience
     1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
     2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
     3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
@@ -58,7 +58,7 @@ B. Runner and Customer Experience
     6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
     7. What is the successful delivery percentage for each runner?
     
-C. Ingredient Optimisation
+3. Ingredient Optimisation
     1. What are the standard ingredients for each pizza?
     2. What was the most commonly added extra?
     3. What was the most common exclusion?
@@ -71,13 +71,13 @@ C. Ingredient Optimisation
     For example: "Meat Lovers: 2xBacon, Beef, ... , Salami"
     6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
     
-D. Pricing and Ratings
+4. Pricing and Ratings
     1. If a Meat Lovers pizza costs $12 and Vegetarian costs $10 and there were no charges for changes -
         how much money has Pizza Runner made so far if there are no delivery fees?
     2. What if there was an additional $1 charge for any pizza extras?
         Add cheese is $1 extra
-    3. The Pizza Runner team now wants to add an additional ratings system that allows customers to rate their runner, how would you design an additional table for this new dataset - generate a schema for this new table and insert your own data for ratings for each successful customer order between 1 to 5.
-    4. Using your newly generated table - can you join all of the information together to form a table which has the following information for successful deliveries?
+    3. The Pizza Runner team now wants to add an additional ratings system that allows customers to rate their runner, how would you design an additional table for         this new dataset - generate a schema for this new table and insert your own data for ratings for each successful customer order between 1 to 5.
+    4. Using your newly generated table - can you join all of the information together to form a table which has the following information for successful                   deliveries?
         a. customer_id
         b. order_id
         c. runner_id
@@ -88,7 +88,7 @@ D. Pricing and Ratings
         h. Delivery duration
         i. Average speed
         j. Total number of pizzas
-    5. If a Meat Lovers pizza was $12 and Vegetarian $10 fixed prices with no cost for extras and each runner is paid $0.30 per kilometre traveled - how much money does Pizza Runner have left over after these deliveries?
+    5. If a Meat Lovers pizza was $12 and Vegetarian $10 fixed prices with no cost for extras and each runner is paid $0.30 per kilometre traveled - how much money         does Pizza Runner have left over after these deliveries?
 
-E. Bonus Questions
-1. If Danny wants to expand his range of pizzas - how would this impact the existing data design? Write an INSERT statement to demonstrate what would happen if a new Supreme pizza with all the toppings was added to the Pizza Runner menu?
+5. Bonus Questions
+        1. If Danny wants to expand his range of pizzas - how would this impact the existing data design? Write an INSERT statement to demonstrate what would happen            if a new Supreme pizza with all the toppings was added to the Pizza Runner menu?
