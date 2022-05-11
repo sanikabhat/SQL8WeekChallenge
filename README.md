@@ -2,7 +2,7 @@
 
 (I will upload all the sql files for every week)
 
-## **Danny Ma's Week 1 (Danny's Diner) Challenge**
+## **Week 1 (Danny's Diner) Challenge**
 
 ![image](https://user-images.githubusercontent.com/26146479/167309111-50470b0d-b43a-4b53-aece-096608950e8b.png)
 
@@ -17,7 +17,7 @@
 9.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
-## ** Week 2 (Pizza Runner) Challenge**
+## **Week 2 (Pizza Runner) Challenge**
 
 ![image](https://user-images.githubusercontent.com/26146479/167879674-116e3a28-44cb-4c5a-aedc-f6e4fba0d09f.png)
 
